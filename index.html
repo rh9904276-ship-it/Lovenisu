@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ঈদের উপহার 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Hind Siliguri',sans-serif;
+background:linear-gradient(135deg,#1a1a1a,#000000);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-5px);}
+50%{transform:translateX(5px);}
+75%{transform:translateX(-5px);}
+100%{transform:translateX(0);}
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+
+@keyframes kissUp{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+@keyframes explode{
+0%{transform:scale(1);opacity:1;}
+100%{transform:scale(25);opacity:0;}
+}
+
+@keyframes popIn{
+0%{transform:scale(0.7);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+#lock{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:black;
+z-index:20;
+}
+
+#lock.shake{
+animation:shake .4s;
+}
+
+#lock input{
+padding:12px;
+border:none;
+border-radius:12px;
+text-align:center;
+margin-top:10px;
+outline:none;
+}
+
+#lock button{
+margin-top:12px;
+}
+
+#intro{
+display:none;
+position:absolute;
+width:100%;
+height:100%;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:black;
+z-index:10;
+text-align:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+.card{
+display:none;
+padding:30px 20px;
+border-radius:20px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(15px);
+text-align:center;
+width:90%;
+max-width:360px;
+box-shadow:0 0 20px rgba(255,0,100,.35);
+position:relative;
+z-index:5;
+}
+
+h1{
+text-shadow:0 0 15px #ff4b5c;
+font-size:26px;
+}
+
+#typing{
+margin-top:15px;
+min-height:60px;
+color:#ffccd5;
+}
+
+#msg{
+display:none;
+margin-top:15px;
+line-height:1.7;
+}
+
+button{
+margin-top:20px;
+padding:11px 20px;
+border:none;
+border-radius:24px;
+background:linear-gradient(45deg,#ff4b5c,#ff0080);
+color:white;
+cursor:pointer;
+font-size:15px;
+}
+
+#secret{
+display:none;
+margin-top:15px;
+color:#ffd6e0;
+font-size:14px;
+}
+
+#giftBox{
+display:none;
+margin:20px auto 0;
+width:90px;
+height:90px;
+font-size:55px;
+cursor:pointer;
+animation:popIn .6s ease;
+user-select:none;
+}
+
+#giftText{
+display:none;
+margin-top:12px;
+font-size:14px;
+color:#ffe3ea;
+}
+
+#realGift{
+display:none;
+margin-top:18px;
+padding:18px;
+border-radius:18px;
+background:rgba(255,255,255,.08);
+animation:popIn .6s ease;
+line-height:1.7;
+color:#fff0f5;
+box-shadow:0 0 18px rgba(255,80,140,.25);
+}
+
+.heart{
+position:absolute;
+color:#ff4b5c;
+animation:float 6s linear infinite;
+pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="lock">
+<h2>🔐 Password দিন</h2>
+<input type="password" id="pass" placeholder="Password লিখুন">
+<button onclick="checkPass()">Unlock 💖</button>
+<p id="error" style="color:#ff6b6b;"></p>
+</div>
+
+<div id="intro">
+<h1>💖 বউ, তোমার জন্য একটা ছোট্ট উপহার 🎁</h1>
+<button onclick="start()">উপহার খুলুন 💝</button>
+</div>
+
+<div class="card" id="main">
+<h1>🌙 ঈদ মোবারক, আমার প্রিয় সোনা বউ 💖</h1>
+
+<div id="typing"></div>
+
+<button onclick="showLove()">ভালোবাসা দেখুন 💖</button>
+
+<div id="msg">
+💖 নিসু 💖 <br><br>
+তুমি শুধু আমার বউ নও,<br>
+তুমি আমার জীবনের সবচেয়ে সুন্দর অনুভূতি 💫<br><br>
+তোমার হাসিতে আমার প্রতিটা দিন ঈদের মতো হয়ে যায় ✨<br>
+তোমার ভালোবাসায় আমি প্রতিদিন নতুন করে বাঁচি 💞<br><br>
+আজকের এই ঈদের দিনে একটা কথাই বলতে চাই—<br>
+আমি তোমাকে অনেক অনেক ভালোবাসি ❤️<br><br>
+🌙 ঈদ মোবারক, আমার ভালোবাসা 😘<br><br>
+✨ চিরদিন তোমারই থাকবো 💖<br>
+— তোমার সানি 💌
+</div>
+
+<div id="secret">🎁 Secret: তুই আমার লাইফের best decision 💖</div>
+
+<div id="giftBox" onclick="unlockGift()">🎁</div>
+<div id="giftText">এই গিফট বক্সে চাপ দাও, তোমার আসল চমক ভেতরে আছে 💝</div>
+
+<div id="realGift">
+<h3>💎 তোমার আসল উপহার 💎</h3>
+<p>
+নিসু, এই ছোট্ট ওয়েবসাইটটা শুধু একটা surprise না...  
+এটা আমার মন থেকে তোমার জন্য বানানো ভালোবাসার উপহার 💖
+</p>
+<p>
+🎉 Promise Gift:  
+তোমার জন্য একটা special day, special treat, আর অনেক অনেক ভালোবাসা রইলো 💞
+</p>
+<p>
+💌 Coupon Code: <b>NISU-LOVE-2026</b><br>
+এই code দেখালে আমার কাছ থেকে ১টা tight hug, ১টা sweet smile, আর ১টা special gift claim করতে পারবা 😘
+</p>
+</div>
+</div>
+
+<script>
+let attempts=0;
+let text="তুমি আমার জীবনের সেই গল্প, যেটা আমি কখনো শেষ করতে চাই না... 💖";
+let i=0;
+
+function checkPass(){
+let password="sanilovenisu";
+let input=document.getElementById("pass").value;
+
+if(input===password){
+document.getElementById("lock").style.display="none";
+document.getElementById("intro").style.display="flex";
+}else{
+attempts++;
+const lock=document.getElementById("lock");
+lock.classList.add("shake");
+setTimeout(()=>lock.classList.remove("shake"),400);
+
+if(attempts>=3){
+document.getElementById("error").innerText="🚫 Access Denied!";
+}else{
+document.getElementById("error").innerText="❌ ভুল পাসওয়ার্ড!";
+}
+}
+}
+
+function start(){
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="block";
+type();
+}
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,60);
+}
+}
+
+function showLove(){
+document.getElementById("msg").style.display="block";
+document.getElementById("secret").style.display="block";
+document.getElementById("giftBox").style.display="block";
+document.getElementById("giftText").style.display="block";
+}
+
+function unlockGift(){
+document.getElementById("realGift").style.display="block";
+document.getElementById("giftText").innerText="🎉 গিফট unlock হয়ে গেছে, সোনা বউ 💖";
+burstFireworks(10);
+}
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"%";
+h.style.bottom="-20px";
+h.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+
+setInterval(()=>{
+let k=document.createElement("div");
+k.innerHTML="💋";
+k.style.position="absolute";
+k.style.left=Math.random()*100+"%";
+k.style.bottom="0px";
+k.style.fontSize=(Math.random()*20+20)+"px";
+k.style.animation="kissUp 4s linear";
+k.style.pointerEvents="none";
+document.body.appendChild(k);
+setTimeout(()=>k.remove(),4000);
+},650);
+
+function createFirework(x,y){
+let fw=document.createElement("div");
+fw.className="firework";
+fw.style.left=x || Math.random()*100+"%";
+fw.style.top=y || Math.random()*80+"%";
+fw.style.background=`hsl(${Math.random()*360},100%,60%)`;
+document.body.appendChild(fw);
+setTimeout(()=>fw.remove(),1000);
+}
+
+function burstFireworks(total){
+for(let j=0;j<total;j++){
+setTimeout(()=>{
+createFirework();
+},j*120);
+}
+}
+
+setInterval(()=>{
+createFirework();
+},1000);
+</script>
+
+</body>
+</html>
